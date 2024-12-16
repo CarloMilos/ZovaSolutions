@@ -1,0 +1,463 @@
+@import url(../css/clash-display.css);
+
+/* VARIABLES */
+:root {
+  --c-dark: #001834;
+  --c-brand: #002b5b;
+  --c-brand-light: #0165d6;
+  --c-body: #727272;
+  --font-base: "ClashDisplay", sans-serif;
+  --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Thinner scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light track */
+  border-radius: 10px; /* Rounded track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #002b5b; /* Dark blue thumb */
+  border-radius: 10px; /* Rounded thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #005377; /* Darker blue on hover */
+}
+.typing-text {
+  display: inline-block;
+  opacity: 0; /* Start hidden */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid transparent; /* Space for the cursor */
+  animation: fadeIn 1.32s ease-in forwards, typing 3s steps(30) 0.5s forwards;
+}
+
+.flashing-cursor {
+  display: inline-block;
+  color: var(--c-dark);
+  animation: blink 0.6s steps(2) infinite;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60%;
+  }
+}
+
+@keyframes blink {
+  0%, 60% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+}
+
+.navbar-custom {
+  width: 100%;
+  background-color: #002b5b;
+  font-family: var(--font-base);
+}
+.navbar-content {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  max-width: 1440px;
+  
+}
+.nav-link {
+  position: relative;
+  margin: 0 1rem; /* Reduced gap to 10px */
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-links-container {
+  display: flex;
+  justify-content: center; /* Centers the links */
+  align-items: center;
+  flex-grow: 1;
+}
+.nav-link:hover {
+  color: white;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease, right 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+  right: 0;
+  left: 0;
+}
+.navbar-brand img {
+  height: 50px;
+}
+#logo {
+  transition: transform 1s ease-in-out; /* Increase transition duration */
+}
+
+#logo:hover {
+  transform: rotate(180deg); /* Rotate only 180 degrees */
+}
+
+.contact-button{
+  background-color: var(--c-dark);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.contact-button:hover {
+  background-color: var(--c-brand-light);
+  transform: scale(1.05);
+}
+
+
+.hero-container {
+  font-family: var(--font-base);
+  color: white;
+  height: 60vh;
+  max-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Important for layering */
+  overflow: hidden; /* Prevent video overflow */
+  z-index: 1; /* Base z-index for container */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Initial offset */
+  transition: opacity 1.2s ease-in-out, transform 0.5s ease-in-out;
+  overflow: hidden; /* Prevents any overflow from showing */
+  background-color: black; /* Ensures the background is black */
+}
+
+.hero-container.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the container without distortion */
+  z-index: 1; /* Lowest z-index for background video */
+  filter: blur(3px) brightness(70%); /* Blurs and darkens the video for better text readability */
+}
+
+.hero {
+  text-align: center;
+  width: 75%;   
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative; /* For layering text above video */
+  z-index: 4; /* Higher than logo but lower than button */
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: 5vw;
+  color: #002b5b; /* Text color retained */
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3); /* Enhances readability */
+}
+
+.hero h3 {
+  font-weight: 400;
+  font-size: 2.5vw;
+  margin-top: 1rem;
+  color: white; /* Text color retained */
+  font-style: italic;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3); /* Enhances readability */
+}
+
+.hero button {
+  background-color: var(--c-brand);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+  font-size: 1.75rem;
+  font-family: var(--font-base);
+  border-radius: 5px;
+  z-index: 5; /* Highest z-index */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero button:hover {
+  background-color: var(--c-brand-light);
+  transform: scale(1.05);
+}
+
+.hero-logo-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Lower than text but above video */
+}
+
+.hero-logo {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 0.2; /* Adjust for better contrast */
+}
+
+
+.card-container {
+  background-color: var(--c-brand);
+  font-family: var(--font-base);
+}
+
+.card-wrap {
+  padding: .5rem;
+  max-width: 100%; /* Set the card width to 60% */
+  margin: 0 auto; /* Center the card container */
+}
+
+.card-text1{
+  color: white;
+  text-align: left;
+}
+
+.card-text1 h3 {
+  font-family: var(--font-base);
+  font-weight: 400;
+  word-spacing: 7.5px;
+}
+
+.card-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  margin: 0 auto;
+}
+
+.partner-logo {
+  height: auto; /* Ensure logos scale proportionally */
+  max-width: 100%; /* Ensure logos do not exceed their container size */
+  width: 45%; /* Adjust the width for better responsiveness */
+  opacity: 0;
+  transform: translateY(-50px); /* Start above the screen */
+  transition: opacity 1s ease, transform 1s ease;
+
+}
+
+/* Floating effect */
+.partner-logo.floating {
+  animation: floating 4s infinite alternate ease-in-out;
+}
+
+/* Bounce animation for each logo */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating movement animation */
+@keyframes floating {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(5px) translateY(5px);
+  }
+  100% {
+    transform: translateX(-5px) translateY(-5px);
+  }
+}
+
+/* Delayed bounce animations */
+.partner-logo:nth-child(1) {
+  animation: bounceIn 1s forwards 0.5s; /* Avalara comes in first */
+}
+
+.partner-logo:nth-child(2) {
+  animation: bounceIn 1s forwards 1s; /* Shopify comes in second */
+}
+
+.partner-logo:nth-child(3) {
+  animation: bounceIn 1s forwards 1.5s; /* Microsoft comes in third */
+}
+
+.wrap-service{
+  background-color: #d7d7dc;
+}
+.services-section,
+.support-section {
+  width: 80%;
+  margin: 0 auto;
+  font-family: var(--font-base);
+  color: white;
+  max-width: 1600px;
+}
+
+.services-section {
+  background-color: rgb(215, 215, 220);
+  padding: 2rem;
+  color: var(--c-brand);
+  max-width: 1620px;
+}
+.wrap-support{
+  background-color: #002b5b;
+}
+
+.support-section {
+  background-color: #002b5b;
+  padding: 5rem;
+}
+
+.services-section h1,
+.support-section h1 {
+  font-weight: 900;
+}
+.card1{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  
+}
+
+.card1 img {
+  max-width: 150px;
+  margin: auto;
+  display: block;
+}
+.card{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  
+}
+
+.card img {
+  max-width: 150px;
+  margin: auto;
+  display: block;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-text{
+  color: var;
+}
+
+.footer-wrap{
+  background-color: var(--c-dark);
+  font-family: var(--font-base);
+}
+.call-to-action {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 5rem;
+  padding-bottom: 2.5rem;
+}
+.cta-btn{
+    background-color: var(--c-brand);
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.75rem;
+    font-family: var(--font-base);
+    border-radius: 5px;
+    z-index: 2;
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .cta-btn:hover {
+    background-color: var(--c-brand-light);
+    transform: scale(1.05);
+  }
+
+  /* Initial state for the elements */
+.col {
+  opacity: 0;
+  transform: translateY(50px); /* Start slightly below */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+/* Active state when elements are in view */
+.col.fade-in {
+  opacity: 1;
+  transform: translateY(0); /* Move to original position */
+}
+
+
+.footer {
+  padding: 20px 0;
+}
+.cta-text-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.nectar-scribble {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 40px);
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cta-text {
+  position: relative;
+  z-index: 3;
+}
+
+#scribble-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.nectar-scribble.animate #scribble-path {
+  animation: dash 1.2s linear forwards; /* Updated duration */
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (max-width: 768px) {
+  .partner-logo {
+    width: 50%; /* Make logos smaller on mobile */
+  }
+}

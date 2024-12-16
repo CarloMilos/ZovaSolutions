@@ -1,0 +1,283 @@
+@import url(../css/clash-display.css);
+
+/* VARIABLES */
+:root {
+  --c-dark: #001834;
+  --c-brand: #002b5b;
+  --c-brand-light: #0165d6;
+  --c-body: #727272;
+  --font-base: "ClashDisplay", sans-serif;
+  --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Thinner scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light track */
+  border-radius: 10px; /* Rounded track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #002b5b; /* Dark blue thumb */
+  border-radius: 10px; /* Rounded thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #005377; /* Darker blue on hover */
+}
+.body{
+    background-color:#d7d7dc;
+}
+.navbar-custom {
+  width: 100%;
+  background-color: #002b5b;
+  font-family: var(--font-base);
+}
+.navbar-content {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  max-width: 1440px;
+  
+}
+.nav-link {
+  position: relative;
+  margin: 0 1rem; /* Reduced gap to 10px */
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-links-container {
+  display: flex;
+  justify-content: center; /* Centers the links */
+  align-items: center;
+  flex-grow: 1;
+}
+.nav-link:hover {
+  color: white;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease, right 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+  right: 0;
+  left: 0;
+}
+.navbar-brand img {
+  height: 50px;
+}
+#logo {
+  transition: transform 1s ease-in-out; /* Increase transition duration */
+}
+
+#logo:hover {
+  transform: rotate(180deg); /* Rotate only 180 degrees */
+}
+.contact-button{
+    background-color: var(--c-dark);
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.contact-button:hover {
+background-color: var(--c-brand-light);
+transform: scale(1.05);
+}  
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 1.5rem; /* Spacing between items */
+  }
+.contact-form-header {
+    margin-bottom: 2rem; /* Space below the header */
+    color: #002b5b; /* Dark blue text */
+    font-family: var(--font-base);
+    letter-spacing: 1px;
+    word-spacing: 6px;
+}
+
+.contact-form-header h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+    text-transform: uppercase; /* Optional: makes the text uppercase */
+}
+
+.contact-form {
+    width: 60%;
+    max-width: 1000px;
+    margin: 0 auto; /* Adds gap between the navbar and the form */
+    padding: 2rem;
+    font-family: var(--font-base);
+    background-color: white;
+    position: relative;
+    top: 3vh;
+    margin-bottom: 5vh;
+  }
+  
+  .contact-form .form-group {
+    margin-bottom: 1.5rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .description {
+    grid-column: 1 / -1; /* Span full width of the form */
+  }
+  
+  .contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+        font-weight: bold;
+        font-size: 1rem;
+        color: #002b5b;
+      }
+      
+    
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form input[type="tel"],
+  .contact-form select{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #002b5b;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: #333;
+    background: none;
+  }
+  
+  .contact-form textarea {
+    width: 50%;
+    border: 2px solid #002b5b;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+    background: none;
+    resize: none;
+  }
+  .contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+  
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-bottom: 2px solid #00509e; /* Slightly brighter blue on focus */
+  }
+  .contact-form textarea {
+    width: 100%; /* Ensure full width for description */
+  }
+  
+  .contact-form .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-form .checkbox-group input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+    border: 2px solid #002b5b;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .contact-form .checkbox-group input[type="checkbox"]:checked {
+    background-color: #002b5b;
+  }
+  
+  .contact-form .checkbox-group input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .contact-form .checkbox-group label {
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+  }
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+
+  
+  .g-recaptcha {
+    margin-bottom: 1.5rem;
+  }
+
+.submit-btn{
+    background-color: var(--c-dark);
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+        display: flex;
+    justify-content: center;
+}
+.submit-btn:hover {
+background-color: var(--c-brand-light);
+transform: scale(1.05);
+}
+
+.centered {
+    grid-column: span 2; /* Center items in the last row */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+.footer {
+    padding: 20px 0;
+  }
+.footer-wrap{
+    background-color: var(--c-dark);
+    font-family: var(--font-base);
+  }
+
+  @media (max-width: 768px) {
+    .contact-form {
+      width: 90%;
+      padding: 1.5rem;
+    }
+    .form-grid {
+      grid-template-columns: 1fr; /* Single-column layout */
+    }
+    
+    textarea, 
+    .centered {
+      grid-column: span 1; /* Full width in single-column layout */
+    }
+  }
